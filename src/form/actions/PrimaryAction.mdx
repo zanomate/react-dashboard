@@ -1,0 +1,83 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import PrimaryActionStories, { Basic, Negative, Positive, Tooltips, Icon } from './PrimaryAction.stories'
+
+<Meta of={PrimaryActionStories} />
+
+# PrimaryAction
+
+<Canvas of={Basic} withToolbar sourceState="shown" />
+<Controls of={Basic} exclude={['size', 'slotProps']} />
+
+#### Available actions
+
+<table>
+  <tr>
+    <th>Action</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>action="submit"</code></td>
+    <td>Automatically triggers the submit action for the nearest form in the above hierarchy</td>
+  </tr>
+  <tr>
+    <td><code>action="reset"</code></td>
+    <td>Automatically resets the fields of the nearest form in the above hierarchy</td>
+  </tr>
+  <tr>
+    <td><code>action="clear"</code></td>
+    <td>Automatically clears the fields of the nearest form in the above hierarchy</td>
+  </tr>
+  <tr>
+    <td><code>action=\{Function}</code></td>
+    <td>Performs any specified action</td>
+  </tr>
+</table>
+
+#### Available i18n keys
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.label</code></td>
+    <td>✅</td>
+    <td>The label of the action button</td>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.tooltip</code></td>
+    <td></td>
+    <td>Add a tooltip on mouse hover</td>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.tooltip_disabled</code></td>
+    <td></td>
+    <td>Add a tooltip on mouse hover</td>
+  </tr>
+</table>
+
+## Icon
+
+<Canvas of={Icon} withToolbar sourceState="shown" />
+
+### Positive
+
+<Canvas of={Positive} withToolbar sourceState="shown" />
+
+### Negative
+
+<Canvas of={Negative} withToolbar sourceState="shown" />
+
+## Tooltips
+
+<Canvas of={Tooltips} withToolbar sourceState="none" />
+
+```json
+{
+  "label": "Save",
+  "tooltip": "Save changes",
+  "tooltip_disabled": "No changes to save"
+}
+```

@@ -1,0 +1,47 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import SecondaryActionStories, { Basic, Tooltips } from './SecondaryAction.stories'
+
+<Meta of={SecondaryActionStories} />
+
+# SecondaryAction
+
+<Canvas of={Basic} withToolbar sourceState="shown" />
+
+### Available i18n keys
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.label</code></td>
+    <td>✅</td>
+    <td>The label of the action button</td>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.tooltip</code></td>
+    <td></td>
+    <td>Add a tooltip on mouse hover</td>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.tooltip_disabled</code></td>
+    <td></td>
+    <td>Add a tooltip on mouse hover</td>
+  </tr>
+</table>
+
+<Controls of={Basic} include={['name', 'icon', 'disabled']} />
+
+## Tooltips
+
+<Canvas of={Tooltips} withToolbar sourceState="none" />
+
+```json
+{
+  "label": "Edit",
+  "tooltip": "Edit changes",
+  "tooltip_disabled": "Edit is not available"
+}
+```

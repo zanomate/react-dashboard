@@ -1,0 +1,55 @@
+import { StoryContainer } from '../../../.storybook/StoryContainer'
+import { Form } from '../Form'
+import { TextInput } from './TextInput'
+
+# TextInput
+
+Component that handles text input. It automatically registers itself to the nearest wrapping `Form` component. (See "Inputs" page for more information)
+It supports the following labels out of the box:
+- `placeholder`
+- `required`
+- `minLength`
+- `maxLength`
+- `pattern`
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+    config={{
+      useForm: { mode: 'onChange' }
+    }}
+  >
+    <TextInput name="nickname" />
+  </Form>
+</StoryContainer>
+
+```jsx
+  <TextInput name="nickname" />
+```
+
+## Validation
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+    config={{
+      useForm: { mode: 'onChange' }
+    }}
+  >
+    <TextInput name="nickname" defaultValue="ZNMT" required minLength={3} maxLength={10} pattern={/^[a-zA-Z0-9]+$/} />
+  </Form>
+</StoryContainer>
+
+```jsx
+<TextInput
+  name="nickname"
+  defaultValue="ZNMT"
+  required
+  minLength={3}
+  maxLength={10}
+  pattern={/[a-zA-Z0-9]+/}
+/>
+```
+

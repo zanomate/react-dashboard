@@ -1,0 +1,15 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import IconActionStories, { Basic, CompleteList } from './IconAction.stories'
+
+<Meta of={IconActionStories} />
+
+# IconAction
+
+<a href="https://fonts.google.com/icons" target="_blank">Material Symbols & Icons</a>
+
+<Canvas of={Basic} withToolbar sourceState="shown" />
+<Controls of={Basic} include={['name', 'icon', 'positive', 'negative', 'disabled']} />
+
+# Complete list of icons
+
+<Canvas of={CompleteList} sourceState="none" />

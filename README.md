@@ -1,3 +1,12 @@
-# react-library-template
+# react-dashboard
 
-A basic [Typescript](https://www.typescriptlang.org/) + [React](https://it.reactjs.org/) **library** template.
+## Installation
+
+Add the following to the `head` of your `index.html` file:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+```

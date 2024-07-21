@@ -1,0 +1,23 @@
+# Inputs
+
+The library provides a set of "input" components. All of them share the same common structure and props.
+Each input component automatically subscribe to the nearest form that wraps it, and will be automatically validated and updated.
+
+Generically, to make an input fully functional, you only need to specify its `name` and `defaultValue`.
+
+```jsx
+<TextInput name="firstName" defaultValue="Mario" />
+```
+
+To add more complex validation logics on them, you can use the `schema` prop,
+based on the [yup](https://github.com/jquense/yup) library.
+
+```jsx
+<TextInput name="firstName" defaultValue="Mario" />
+```
+
+### TextInput
+
+```jsx
+<TextInput />
+```

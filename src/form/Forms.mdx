@@ -1,0 +1,24 @@
+import { StoryContainer } from '../../.storybook/StoryContainer'
+import { Grid } from '../layout/grid/Grid'
+import { Form } from './Form'
+import { FormAlert } from './FormAlert'
+import { NumericInput } from './inputs/NumericInput'
+import { TextInput } from './inputs/TextInput'
+
+# Form
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+  >
+    <Grid>
+      <TextInput name="nickname" required maxLength={5} />
+      <NumericInput name="age" required positive />
+      <NumericInput name="rangeMin" positive min={0} />
+      <NumericInput name="rangeMax" positive max={100} />
+      <FormAlert size="huge" name="invalidRange" dependsOn={['rangeMin', 'rangeMax']} condition={(rangeMin, rangeMax) => Number(rangeMin) > Number(rangeMax)} />
+    </Grid>
+    <button type="submit">Submit</button>
+  </Form>
+</StoryContainer>

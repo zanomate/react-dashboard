@@ -1,0 +1,111 @@
+import { Markdown } from '@storybook/blocks'
+import { StoryArea } from '../stories/fragments/StoryArea'
+import { Flex } from './flex/Flex'
+import { Grid } from './grid/Grid'
+import { LayoutItem } from './LayoutItem'
+
+# Layout
+
+The library provides a series of "layout" component that defines a "context" under witch elements were disposed following specific rules.
+
+#### Layout items
+
+In the following examples, we'll use the generic `LayoutItem` component.
+This component will be disposed based on the type of the nearest "layout" component that wraps it.
+
+Almost **every component** of the library extends it,
+so the following examples are valid for all those components.
+
+#### Layout containers
+
+Currently, the following layout containers are available:
+
+### Flex
+
+Based on [react-flex-element](https://www.npmjs.com/package/react-flex-element) library, disposes elements in a flex container.
+It provides a series of useful props to rapidly setup flexbox rules.
+
+```jsx
+<Flex row height={200}>
+  <LayoutItem>...</LayoutItem>
+  <LayoutItem selfStart>...</LayoutItem>
+  <LayoutItem selfStretch>...</LayoutItem>
+  <LayoutItem grow selfEnd>...</LayoutItem>
+</Flex>
+```
+
+<Flex row height={200}>
+  <LayoutItem><StoryArea width={100} height={100}>1</StoryArea></LayoutItem>
+  <LayoutItem selfStart><StoryArea width={100} height={100}>2</StoryArea></LayoutItem>
+  <LayoutItem selfStretch><StoryArea width={100} height={100}>3</StoryArea></LayoutItem>
+  <LayoutItem grow selfEnd><StoryArea width={100} height={100}>4</StoryArea></LayoutItem>
+</Flex>
+
+
+### Grid
+
+Uses MUI's `Grid` component to define a grid layout.
+
+```jsx
+<Grid>
+  <LayoutItem size="huge">...</LayoutItem>
+  <LayoutItem size="large">...</LayoutItem>
+  <LayoutItem size="small">...</LayoutItem>
+  <LayoutItem size="medium">...</LayoutItem>
+  <LayoutItem size="medium">...</LayoutItem>
+</Grid>
+```
+
+<Grid>
+  <LayoutItem size="huge"><StoryArea height={50}>1</StoryArea></LayoutItem>
+  <LayoutItem size="large"><StoryArea height={50}>2</StoryArea></LayoutItem>
+  <LayoutItem size="small"><StoryArea height={50}>3</StoryArea></LayoutItem>
+  <LayoutItem size="medium"><StoryArea height={50}>4</StoryArea></LayoutItem>
+  <LayoutItem size="medium"><StoryArea height={50}>5</StoryArea></LayoutItem>
+</Grid>
+
+Every item will be nested in a `Grid` item;
+the `size` prop will be used to define the number of columns that the item will occupy in the different breakpoints.
+
+<Markdown>
+  {`
+| size | xs | sm | md |
+|---|---|---|---|
+| huge | 12 | 12 | 12 |
+| large | 12 | 8 | 4 |
+| medium | 12 | 6 | 3 |
+| small | 12 | 4 | 2 |
+`}
+</Markdown>
+
+#### Best combinations of grid item sizes:
+
+##### Single 'huge'
+
+<Grid>
+  <LayoutItem size="huge"><StoryArea height={50}>HUGE</StoryArea></LayoutItem>
+</Grid>
+
+##### 'large' + 'small'
+
+<Grid>
+  <LayoutItem size="large"><StoryArea height={50}>LARGE</StoryArea></LayoutItem>
+  <LayoutItem size="small"><StoryArea height={50}>SMALL</StoryArea></LayoutItem>
+</Grid>
+
+##### 'medium' + 'medium'
+
+<Grid>
+  <LayoutItem size="medium"><StoryArea height={50}>MEDIUM</StoryArea></LayoutItem>
+  <LayoutItem size="medium"><StoryArea height={50}>MEDIUM</StoryArea></LayoutItem>
+</Grid>
+
+##### 'small' + 'small' + 'small'
+
+<Grid>
+  <LayoutItem size="small"><StoryArea height={50}>SMALL</StoryArea></LayoutItem>
+  <LayoutItem size="small"><StoryArea height={50}>SMALL</StoryArea></LayoutItem>
+  <LayoutItem size="small"><StoryArea height={50}>SMALL</StoryArea></LayoutItem>
+</Grid>
+
+---

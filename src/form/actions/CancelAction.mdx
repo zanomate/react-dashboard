@@ -1,0 +1,47 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import CancelActionStories, { Basic, Tooltips } from './CancelAction.stories'
+
+<Meta of={CancelActionStories} />
+
+# CancelAction
+
+<Canvas of={Basic} withToolbar sourceState="shown" />
+
+### Available i18n keys
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.label</code></td>
+    <td>✅</td>
+    <td>The label of the action button</td>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.tooltip</code></td>
+    <td></td>
+    <td>Add a tooltip on mouse hover</td>
+  </tr>
+  <tr>
+    <td><code>{'{name}'}.tooltip_disabled</code></td>
+    <td></td>
+    <td>Add a tooltip on mouse hover</td>
+  </tr>
+</table>
+
+<Controls of={Basic} include={['name', 'icon', 'disabled']} />
+
+## Tooltips
+
+<Canvas of={Tooltips} withToolbar sourceState="none" />
+
+```json
+{
+  "label": "Cancel",
+  "tooltip": "Cancel changes",
+  "tooltip_disabled": "Cancel is not available"
+}
+```

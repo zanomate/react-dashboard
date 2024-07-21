@@ -1,0 +1,122 @@
+import { StoryContainer } from '../../../.storybook/StoryContainer'
+import { Form } from '../Form'
+import { NumericInput } from './NumericInput'
+
+# NumericInput
+
+Component that handles text input. It automatically registers itself to the nearest wrapping `Form` component. (See "Inputs" page for more information)
+It supports the following labels out of the box:
+- `placeholder`
+- `required`
+- `min`
+- `max`
+- `positive`
+- `negative`
+- `integer`
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+    config={{
+      useForm: { mode: 'onChange' }
+    }}
+  >
+    <NumericInput name="age" />
+  </Form>
+</StoryContainer>
+
+```jsx
+<NumericInput name="age" />
+```
+
+## Validation
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+    config={{
+      useForm: { mode: 'onChange' }
+    }}
+  >
+    <NumericInput name="age" defaultValue={25} required min={18} max={100} />
+  </Form>
+</StoryContainer>
+
+```jsx
+<NumericInput
+  name="age"
+  defaultValue={25}
+  required
+  min={18}
+  max={100}
+/>
+```
+
+#### Positive
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+    config={{
+      useForm: { mode: 'onChange' }
+    }}
+  >
+    <NumericInput name="age" defaultValue={5} positive />
+  </Form>
+</StoryContainer>
+
+```jsx
+<NumericInput
+  name="age"
+  defaultValue={5}
+  positive
+/>
+```
+
+#### Negative
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+    config={{
+      useForm: { mode: 'onChange' }
+    }}
+  >
+    <NumericInput name="age" defaultValue={-5} negative />
+  </Form>
+</StoryContainer>
+
+```jsx
+<NumericInput
+  name="age"
+  defaultValue={-5}
+  negative
+/>
+```
+
+#### Integer
+
+<StoryContainer>
+  <Form
+    name="form"
+    onSubmit={() => null}
+    config={{
+      useForm: { mode: 'onChange' }
+    }}
+  >
+    <NumericInput name="age" defaultValue={5} integer />
+  </Form>
+</StoryContainer>
+
+```jsx
+<NumericInput
+  name="age"
+  defaultValue={5}
+  integer
+/>
+```
+
